@@ -48,11 +48,11 @@ public class EmprendimientoController {
 	}
 	
 	@GetMapping("/emprendimientos")
-	public List<Emprendimiento> getAll(){
+	public ResponseEntity<List<Emprendimiento>> getAll(){
 		List<Emprendimiento> emprendimientos = StreamSupport
 				.stream(empService.findAll().spliterator(), false)
 				.collect(Collectors.toList());
-		return emprendimientos;
+		return new ResponseEntity<List<Emprendimiento>>(emprendimientos,HttpStatus.OK);
 	}
 	
 	@PutMapping("/{nombre}")
