@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ttps.spring.entity.Rol;
 import com.ttps.spring.entity.Usuario;
 import com.ttps.spring.service.UsuarioService;
+import com.ttps.spring.service.UsuarioServiceImp;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -45,6 +47,28 @@ public class UsuarioController {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(oUsuario);
+	}
+	 /*
+	@PutMapping("/{email}")
+	public ResponseEntity<Usuario> updatePassowrd(@PathVariable("email") String email, @RequestBody Usuario userUpdate){
+		Usuario userOriginal = usuarioService.findByEmail(email);
+		if (userUpdate.getPassword().equals("")) {
+			return new ResponseEntity("Todos los campos son requeridos", HttpStatus.BAD_REQUEST);
+		}
+		userOriginal.setPassword(userUpdate.getPassword());
+		return new ResponseEntity<Usuario>(userOriginal, HttpStatus.OK);
+		
+	}
+	*/
+	@PutMapping("/{id}")
+	public ResponseEntity<Usuario> updatePassowrd(@PathVariable("id") String id, @RequestBody Usuario userUpdate){
+		Usuario userOriginal = usuarioService.findId(Long.parseLong(id));
+		if (userUpdate.getPassword().equals("")) {
+			return new ResponseEntity("Todos los campos son requeridos", HttpStatus.BAD_REQUEST);
+		}
+		userOriginal.setPassword(userUpdate.getPassword());
+		return new ResponseEntity<Usuario>(userOriginal, HttpStatus.OK);
+		
 	}
 	
 	public static boolean validarCamposUsuario(Usuario usuario) {

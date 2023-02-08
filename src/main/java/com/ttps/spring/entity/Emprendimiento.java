@@ -50,18 +50,27 @@ public class Emprendimiento implements Serializable {
 	private Boolean mostrarTopDonadores;
 	@Column
 	private Double precioPorManguito;
+	@Column
+	private String twitter;
+	@Column
+	private String instagram;
+	@Column
+	private String facebook;
 	
 	public Emprendimiento() {
 		super();
 	}
 	public Emprendimiento(String nombre, String descripcion, Boolean mostrarManguitosRecibidos,
-			Boolean mostrarTopDonadores, Double precioPorManguito) {
+			Boolean mostrarTopDonadores, Double precioPorManguito, String twitter, String instagram, String facebook) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.mostrarManguitosRecibidos = mostrarManguitosRecibidos;
 		this.mostrarTopDonadores = mostrarTopDonadores;
 		this.precioPorManguito = precioPorManguito;
+		this.twitter = twitter;
+		this.instagram = instagram;
+		this.facebook = facebook;
 	}
 	public Long getId() {
 		return id;
@@ -118,6 +127,24 @@ public class Emprendimiento implements Serializable {
 	}
 	public void setDonaciones(Donacion donacion) {
 		this.donaciones.add(donacion);
+	}
+	public String getTwitter() {
+		return twitter;
+	}
+	public void setTwitter(String twitter) {
+		this.twitter = twitter;
+	}
+	public String getInstagram() {
+		return instagram;
+	}
+	public void setInstagram(String instagram) {
+		this.instagram = instagram;
+	}
+	public String getFacebook() {
+		return facebook;
+	}
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
 	}
 	
 	

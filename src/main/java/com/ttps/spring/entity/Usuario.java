@@ -36,13 +36,24 @@ public class Usuario implements Serializable {
 	private String email;
 	@Column(length=256)
 	private String password;
+	@Column
+	private String rol;
 	
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
 	public Usuario() {}
 	
-	public Usuario(String email, String password) {
+	public Usuario(String email, String password, String rol) {
 		super();
 		this.email = email;
 		this.password = password;
+		this.rol = "publicador";
 	}
 	public Long getId() {
 		return id;
@@ -57,7 +68,7 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 	public void setPassword(String password) {
 		this.password = password;

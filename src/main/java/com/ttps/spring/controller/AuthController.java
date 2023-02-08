@@ -42,6 +42,7 @@ public class AuthController {
 		data.put("user_id", Long.toString(user.getId()));
 		data.put("email", user.getEmail());
 		data.put("token", token);
+		data.put("rol", user.getRol());
 		return new ResponseEntity<Map<String, String>>(data, HttpStatus.OK);
 	}	
 	
@@ -50,7 +51,7 @@ public class AuthController {
 		 if (userNuevo.hasEmptyFields()) {
 			 return new ResponseEntity("Todos los campos son requeridos", HttpStatus.BAD_REQUEST);
 		 }
-		 
+		 userNuevo.setRol("publicador");
 		 ResponseEntity codigoRta = userService.crear(userNuevo);
 		 if (codigoRta.getStatusCode() != HttpStatus.OK) {
 			 return codigoRta;

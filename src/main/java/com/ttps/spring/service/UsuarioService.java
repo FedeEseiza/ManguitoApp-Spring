@@ -27,4 +27,6 @@ public interface UsuarioService {
 	public void insertRol(Long usuario_id, Long rol_usuario);
 	
 	public ResponseEntity<Usuario> crear(Usuario userNuevo);
+	
+	public Usuario findId(Long id);
 }

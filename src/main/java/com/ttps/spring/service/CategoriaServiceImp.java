@@ -20,4 +20,24 @@ public class CategoriaServiceImp implements CategoriaService {
 		return categoriaRepository.findByName(nombre);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public Iterable<Categoria> findAll() {
+		// TODO Auto-generated method stub
+		return categoriaRepository.findAll();
+	}
+
+	@Override
+	public Categoria save(Categoria categoria) {
+		// TODO Auto-generated method stub
+		return categoriaRepository.save(categoria);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Categoria findCategoriaById(Long id) {
+		// TODO Auto-generated method stub
+		return categoriaRepository.findCategoriaById(id);
+	}
+
 }

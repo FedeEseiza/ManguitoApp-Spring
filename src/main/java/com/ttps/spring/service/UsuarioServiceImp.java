@@ -83,4 +83,10 @@ public class UsuarioServiceImp implements UsuarioService {
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
+	@Override
+	public Usuario findId(Long id) {
+		// TODO Auto-generated method stub
+		return usuarioRepository.findId(id);
+	}
+
 }
