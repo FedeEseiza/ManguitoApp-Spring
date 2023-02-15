@@ -61,5 +61,11 @@ public class EmprendimientoServiceImp implements EmprendimientoService {
 		// TODO Auto-generated method stub
 		return empRepository.findAllEmprendimientos();
 	}
+
+	@Override
+	public Emprendimiento findEmpById(Long id) {
+		// TODO Auto-generated method stub
+		return empRepository.findEmpById(id);
+	}
 	
 }

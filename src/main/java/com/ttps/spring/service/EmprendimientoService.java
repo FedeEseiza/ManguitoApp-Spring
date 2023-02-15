@@ -23,4 +23,6 @@ public interface EmprendimientoService {
 	public Emprendimiento findUserById(Long id);
 	
 	public List<Emprendimiento> findAllEmprendimientos();
+	
+	public Emprendimiento findEmpById(Long id);
 }

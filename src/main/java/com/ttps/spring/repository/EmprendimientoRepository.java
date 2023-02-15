@@ -17,4 +17,7 @@ public interface EmprendimientoRepository extends JpaRepository<Emprendimiento, 
 	
 	@Query("select e from Emprendimiento e")
 	List<Emprendimiento> findAllEmprendimientos();
+	
+	@Query("select e from Emprendimiento e where e.usuario.id=?1")
+	Emprendimiento findEmpById(@Param("id") Long id);
 }

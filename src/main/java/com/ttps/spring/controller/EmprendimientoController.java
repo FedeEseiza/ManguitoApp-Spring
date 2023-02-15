@@ -37,7 +37,7 @@ public class EmprendimientoController {
 		if (empAux == null) {return ResponseEntity.status(HttpStatus.CREATED).body(empService.save(emp));}
 		return ResponseEntity.status(HttpStatus.CONFLICT).body("El usuario ya tiene un emprendimiento");
 	}
-	
+	/*
 	@GetMapping("/{nombre}")
 	public ResponseEntity<?> read(@PathVariable String nombre){
 		Emprendimiento emp = empService.findByNombre(nombre);
@@ -45,6 +45,15 @@ public class EmprendimientoController {
 			return ResponseEntity.ok(emp);
 		}
 		return ResponseEntity.notFound().build();
+	}
+	*/
+	@GetMapping("/{id}")
+	public ResponseEntity<?> obtenerEmprendimientoById(@PathVariable String id){
+		Emprendimiento emp = empService.findEmpById(Long.parseLong(id));
+		if (emp != null) {
+			return ResponseEntity.ok(emp);
+		}
+		return null;
 	}
 	
 	@GetMapping("/emprendimientos")
