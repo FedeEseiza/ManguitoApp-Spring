@@ -1,5 +1,7 @@
 package com.ttps.spring.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +40,18 @@ public class CategoriaServiceImp implements CategoriaService {
 	public Categoria findCategoriaById(Long id) {
 		// TODO Auto-generated method stub
 		return categoriaRepository.findCategoriaById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<Categoria> findById(Long id) {
+		// TODO Auto-generated method stub
+		return categoriaRepository.findById(id);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		categoriaRepository.deleteById(id);
 	}
 
 }
