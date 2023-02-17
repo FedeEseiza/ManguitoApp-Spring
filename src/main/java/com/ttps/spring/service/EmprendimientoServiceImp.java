@@ -67,5 +67,7 @@ public class EmprendimientoServiceImp implements EmprendimientoService {
 		// TODO Auto-generated method stub
 		return empRepository.findEmpById(id);
 	}
+
+	
 	
 }

@@ -56,6 +56,15 @@ public class EmprendimientoController {
 		return null;
 	}
 	
+	@GetMapping("/usuario/{id}")
+	public ResponseEntity<?> obtenerEmpByUserId(@PathVariable String id){
+		Emprendimiento emp = empService.findUserById(Long.parseLong(id));
+		if (emp != null) {
+			return ResponseEntity.ok(emp);
+		}
+		return null;
+	}
+	
 	@GetMapping("/emprendimientos")
 	public ResponseEntity<List<Emprendimiento>> getAll(){
 		List<Emprendimiento> emprendimientos = StreamSupport

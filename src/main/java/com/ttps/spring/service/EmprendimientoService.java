@@ -25,4 +25,6 @@ public interface EmprendimientoService {
 	public List<Emprendimiento> findAllEmprendimientos();
 	
 	public Emprendimiento findEmpById(Long id);
+	
+	
 }

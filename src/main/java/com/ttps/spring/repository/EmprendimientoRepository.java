@@ -12,12 +12,13 @@ public interface EmprendimientoRepository extends JpaRepository<Emprendimiento, 
 	@Query("select e from Emprendimiento e where lower(e.nombre)=lower(?1)")
 	Emprendimiento findByNombre(@Param("nombre") String nombre);
 	
-	@Query("select e from Emprendimiento e where e.usuario.id=?1")
+	@Query("select e from Emprendimiento e where e.usuario.id=:id")
 	Emprendimiento findUserById(@Param("id") Long id);
 	
 	@Query("select e from Emprendimiento e")
 	List<Emprendimiento> findAllEmprendimientos();
 	
-	@Query("select e from Emprendimiento e where e.usuario.id=?1")
+	@Query("select e from Emprendimiento e where e.id=?1")
 	Emprendimiento findEmpById(@Param("id") Long id);
+	
 }
