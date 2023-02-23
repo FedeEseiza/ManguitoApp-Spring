@@ -71,6 +71,9 @@ public class UsuarioController {
 		if (userUpdate.getPassword().equals("")) {
 			return new ResponseEntity("Todos los campos son requeridos", HttpStatus.BAD_REQUEST);
 		}
+		if (userUpdate.getPassword().length() < 5) {
+			 return new ResponseEntity("La contraseña no puede contener menos de 5 caracteres", HttpStatus.FORBIDDEN);
+		 }
 		userOriginal.setPassword(userUpdate.getPassword());
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(userOriginal));
 		

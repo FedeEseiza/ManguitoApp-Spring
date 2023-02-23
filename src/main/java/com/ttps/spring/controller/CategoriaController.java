@@ -55,6 +55,9 @@ public class CategoriaController {
 		if (catOriginal == null) {
 			return ResponseEntity.notFound().build();
 		}
+		if (catService.findByName(nuevaCategoria.getNombre()) != null) {
+			return ResponseEntity.status(HttpStatus.CONFLICT).build();
+		}
 		catOriginal.setNombre(nuevaCategoria.getNombre());
 		return ResponseEntity.status(HttpStatus.CREATED).body(catService.save(catOriginal));
 	}

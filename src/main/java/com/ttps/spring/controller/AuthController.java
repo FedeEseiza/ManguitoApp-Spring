@@ -51,6 +51,9 @@ public class AuthController {
 		 if (userNuevo.hasEmptyFields()) {
 			 return new ResponseEntity("Todos los campos son requeridos", HttpStatus.BAD_REQUEST);
 		 }
+		 if (userNuevo.getPassword().length() < 5) {
+			 return new ResponseEntity("La contraseña no puede contener menos de 5 caracteres", HttpStatus.FORBIDDEN);
+		 }
 		 userNuevo.setRol("publicador");
 		 ResponseEntity codigoRta = userService.crear(userNuevo);
 		 if (codigoRta.getStatusCode() != HttpStatus.OK) {
